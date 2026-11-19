@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <!-- Recupera lo que no se envió (por ejemplo, si la creación del evento falló). -->
+    <record id="ir_cron_boson_gre_sync_reconcile" model="ir.cron">
+        <field name="name">Boson GRE: conciliar envíos al VPS</field>
+        <field name="model_id" ref="boson_gre_sunat.model_boson_gre"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_boson_sync_reconcile()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="active">True</field>
+    </record>
+    <!-- Carga histórica: nace inactivo y se activa sede por sede. -->
+    <record id="ir_cron_boson_gre_sync_backfill" model="ir.cron">
+        <field name="name">Boson GRE: carga histórica al VPS</field>
+        <field name="model_id" ref="boson_gre_sunat.model_boson_gre"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_boson_sync_backfill()</field>
+        <field name="interval_number">10</field>
+        <field name="interval_type">minutes</field>
+        <field name="active">False</field>
+    </record>
+</odoo>

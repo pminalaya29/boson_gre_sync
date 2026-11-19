@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_boson_gre_form_sync" model="ir.ui.view">
+        <field name="name">boson.gre.form.sync</field>
+        <field name="model">boson.gre</field>
+        <field name="inherit_id" ref="boson_gre_sunat.view_boson_gre_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sunat_history']//field[@name='emission_requested_by_id']" position="after">
+                <field name="sync_last_at" string="Enviada al VPS" readonly="1" invisible="not sync_last_at"/>
+                <field name="sync_revision" string="Revisión en el VPS" readonly="1" invisible="not sync_revision"
+                       groups="base.group_no_one"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

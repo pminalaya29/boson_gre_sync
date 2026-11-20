@@ -162,6 +162,11 @@ class BosonGre(models.Model):
             "is_m1_l_vehicle": bool(self.is_m1_l_vehicle),
             "sender": {"ruc": ruc, "name": company.name or ""},
             "recipient": {"doc_type": doc_label, "number": doc_number, "name": recipient.name or ""},
+            "receiver": {
+                "name": self.receiver_name or "",
+                "doc_type": self.receiver_doc_type or "",
+                "number": self.receiver_doc_number or "",
+            } if self.receiver_name else None,
             "origin": origin,
             "destination": destination,
             "carrier": carrier,

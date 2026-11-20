@@ -17,6 +17,7 @@ DOCUMENT_BACKFILL_EVENT = "gre.document.backfill"
 TRACKED_FIELDS = {
     "state", "number", "sunat_ticket", "xml_signed_attachment_id", "cdr_zip_attachment_id",
     "sunat_accepted_at", "sunat_voided_at", "ticket_check_failures", "sunat_response_message",
+    "receiver_name", "receiver_doc_type", "receiver_doc_number",
 }
 
 BACKFILL_PROGRESS_PARAM = "boson_gre_sync.backfill_last_gre_id"
